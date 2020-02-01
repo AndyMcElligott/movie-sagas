@@ -43,10 +43,20 @@ class MovieList extends Component {
                 {/* render pics, titles, on the DOM, make clickable to route to details page */}
                 {/* include a link to edit page here */}
                 {this.props.reduxStore.movies.map(action => 
-                    <ul> 
-                        <img src={action.poster} alt={action.title} onClick={(event) => this.movieInfo(action)}/>
-                        <br/>
-                    </ul>)}
+                    <>
+                        <ul> 
+                            <img 
+                                src={action.poster} 
+                                alt=""
+                                value={action.id}
+                                onClick={(event) => this.movieInfo(action)}/>
+                            <br/>
+                        </ul>
+                            <h3>{action.title}</h3>
+                            <p>{action.description}</p>
+                    </>
+                    )}
+                
             </div>
         )
     }
