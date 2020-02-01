@@ -22,11 +22,18 @@ class MovieList extends Component {
     // server GET request to display movies from DB on DOM
     getAllMovies = () => {
         this.props.dispatch({
-            type: 'SET_MOVIES'
+            type: 'GET_MOVIES'  //  should not be SET_MOVIES to match with index, create new
         })
     }
 
     // func for click event to bring up description
+    movieInfo = (action) => {
+        console.log(action)
+        this.props.dispatch({
+            type: 'MOVIE_INFO',
+            payload: action // double check this is the correct payload on testing
+        })
+    }
 
 
     render() {

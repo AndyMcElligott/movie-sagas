@@ -11,7 +11,23 @@ import Option from '@material-ui/core/Button';
 
 class Home extends Component {
 
+    state= {
+        queryText: ''
+    }
+
+    handleClick = () => {
+        console.log('in handle click')
+        this.props.dispatch({
+            type: 'DETAILS',
+            payload: this.state.queryText
+        })
+    }
+
     render() {
+
+        this.props.reduxStore.movies.map(item => {
+            console.log('in render')
+        })
 
         return (
             <div>
