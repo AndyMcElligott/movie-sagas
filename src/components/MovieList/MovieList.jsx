@@ -1,3 +1,4 @@
+// IMPORT BOILER PLATE
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
@@ -5,15 +6,10 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 // MATERIAL UI IMPORTS
 import{ 
-    Button 
+    CardMedia 
 }from '@material-ui/core';
 
-
 class MovieList extends Component {
-
-    // state = {
-    //     queryText: ''
-    // }
 
     componentDidMount(){
         this.getAllMovies();
@@ -41,16 +37,19 @@ class MovieList extends Component {
             <div className="moviesForDom">
                 <h3>Movies</h3>
                 {/* render pics, titles, on the DOM, make clickable to route to details page */}
-                {/* include a link to edit page here */}
                 {this.props.reduxStore.movies.map(action => 
                     <>
                         <ul> 
-                            <img 
-                                src={action.poster} 
-                                alt=""
-                                value={action.id}
-                                onClick={(event) => this.movieInfo(action)}/>
-                            <br/>
+                            {/* include a link to edit page here */}
+                            <Link to="/edit">
+                                {/* when styling, use material UI to turn img into card? */}
+                                <img 
+                                    src={action.poster} 
+                                    alt=""
+                                    value={action.id}
+                                    onClick={(event) => this.movieInfo(action)}/>
+                                <br/>
+                            </Link>
                         </ul>
                             <h3>{action.title}</h3>
                             <p>{action.description}</p>

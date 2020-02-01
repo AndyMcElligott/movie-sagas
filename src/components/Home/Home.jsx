@@ -1,3 +1,6 @@
+// IS THIS COMPONENT EVEN NECESSARY...?
+
+// IMPORT BOILER PLATE
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
@@ -11,27 +14,14 @@ import Option from '@material-ui/core/Button';
 
 class Home extends Component {
 
-    state= {
-        queryText: ''
-    }
-
-    handleClick = () => {
-        console.log('in handle click')
-        this.props.dispatch({
-            type: 'DETAILS',
-            payload: this.state.queryText
-        })
-    }
-
     render() {
 
-        this.props.reduxStore.movies.map(item => {
-            console.log('in render')
-        })
+        // this.props.reduxStore.movies.map(item => {
+        //     console.log('in render')
+        // })
 
         return (
             <div>
-                <MovieList />
             </div>
         )
     }
