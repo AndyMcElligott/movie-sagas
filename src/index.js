@@ -7,13 +7,26 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import axios from 'axios';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import {takeEvery, put} from 'redux-saga/effects'
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    yield takeEvery ('SET_MOVIES', getMovies)
 }
+
+// SAGA's
+function* getMovies(action) {
+    let response = yield axios.get('/api/movies')
+    console.log(response.data)
+    yield put({ 
+        type: 'SET_MOVIES',
+        payload: response.data
+    })
+}
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
