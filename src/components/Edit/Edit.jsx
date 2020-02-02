@@ -9,9 +9,9 @@ class Edit extends Component {
 
     // locally store user inputs 
     state = {
-        id : this.props.reduxStore.details.id,
-        title : this.props.reduxStore.details.title,
-        description : this.props.reduxStore.details.description
+        id : this.props.reduxStore.id,
+        title : this.props.reduxStore.title,
+        description : this.props.reduxStore.description
     }
 
     // set state with new info
@@ -49,7 +49,7 @@ class Edit extends Component {
                 </div>
                 <div className="editTextArea">
                     {/* route here to /details ? */}
-                    <Route path = "/Details" Component = {Details} />
+                    <Route path = "/Details" component = {Details} />
                     <div>
                         <textarea 
                             className = "editTextTitle"

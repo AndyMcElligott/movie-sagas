@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-// import './MovieList.css';
+import './MovieList.css';
 
 // MATERIAL UI IMPORTS
 import{ 
@@ -36,7 +36,7 @@ class MovieList extends Component {
     render() {
         return(
             <div className="moviesForDom">
-                <h3>Movies</h3>
+                <h1 className= "moviesH1">Current Selection Of Movies</h1>
                 {/* render pics, titles, on the DOM, make clickable to route to details page */}
                 {this.props.reduxStore.movies.map(action => 
                     <>
@@ -53,9 +53,10 @@ class MovieList extends Component {
                                 <br/>
                             </Link>
                         </ul>
+                            <div className= "movieInfo">
                                 <h3>{action.title}</h3>
                                 <p>{action.description}</p>
-                            
+                            </div>
                     </>
                     )}
                 
