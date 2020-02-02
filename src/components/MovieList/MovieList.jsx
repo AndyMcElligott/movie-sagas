@@ -11,6 +11,7 @@ import{
 
 class MovieList extends Component {
 
+    // get movies from DB on page load
     componentDidMount(){
         this.getAllMovies();
     }
@@ -41,7 +42,7 @@ class MovieList extends Component {
                     <>
                         <ul> 
                             {/* include a link to edit page here */}
-                            <Link to="/edit">
+                            <Link to="/Edit" />
                                 {/* when styling, use material UI to turn img into card? */}
                                 <img 
                                     src={action.poster} 
@@ -49,7 +50,6 @@ class MovieList extends Component {
                                     value={action.id}
                                     onClick={(event) => this.movieInfo(action)}/>
                                 <br/>
-                            </Link>
                         </ul>
                             <h3>{action.title}</h3>
                             <p>{action.description}</p>

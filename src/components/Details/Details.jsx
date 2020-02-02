@@ -16,15 +16,17 @@ class Details extends Component {
         return (
             <>
                 <Router>
-                    {/* nav Link to movies here */}
+                    {/* nav Link to MoviesList here */}
+                    <Link to="/" component={MovieList} />
                     {/* nav Link to edit page here */}
-
+                    <Link to="/Edit" component={edit} />
                     {/* replace div with Card when styling */}
                     <div className="detailDiv"> 
 
                         {/* display movie title here; get from store */}
-
+                        {this.props.reduxStore.details}
                         {/* display movie description here; get from store */}
+                        {this.props.reduxStore.description}
                     </div>
                 </Router>
             </>
