@@ -33,13 +33,23 @@ function* getMovies(action) {
 }
 
 // SAGA for editted movie details by ID, PUT
-function* editInfo() {
+function* editInfo(action) {
     let response = yield axios.put(`/api/movies/:{id}`, action.payload)
+    console.log(response.data)
 }
 
 // SAGA for junction table to show genres on details page
-function* getGenres() {
-
+function* getGenres(action) {
+    yield put({
+        type: 'MOVIE_DESCRIPTION',
+        payload: action.payload
+    })
+    // get updated info
+    let response = yield axios.get(`api/genres/id={id}`)
+    yield put({
+        type: 'SET_GENRES',
+        payload: response.data
+    })
 }
 
 ////// Reducers
@@ -65,7 +75,16 @@ const genres = (state = [], action) => {
 
 // Used to store changed details info from Edit
 const edit = (state= [], action) => {
-
+    switch (action.type) {
+        // if editted return something else
+        case 'EDIT_INFO' :
+            return action.payload;
+        // if changes are canceled return original data from DB
+        case 'MOVIE_DESCRIPTION' :
+            return action.payload;
+        default:
+            return state;        
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////

@@ -9,13 +9,18 @@ class Edit extends Component {
 
     // locally store user inputs 
     state = {
-        id : this.props.reduxStore.id,
-        title : this.props.reduxStore.title,
-        description : this.props.reduxStore.description
+        id : this.props.reduxStore.details.id,
+        title : this.props.reduxStore.details.title,
+        description : this.props.reduxStore.details.description
     }
 
-    // dispatch payload to Redux Store
-
+    // set state with new info
+    setDetails = (event, type) => {
+        this.setState({
+            ...this.state,
+            type: event.target.value
+        })
+    } 
 
     // capture inputs on save event
     newDetails = () => {
@@ -44,22 +49,23 @@ class Edit extends Component {
                 </div>
                 <div className="editTextArea">
                     {/* route here to /details ? */}
-                    <span>
+                    <Route path = "/Details" Component = {Details} />
+                    <div>
                         <textarea 
                             className = "editTextTitle"
                             onChange={(event) => this.setDetails(event, 'title')}>
                             {/* display text */}
                             {this.props.reduxStore.title}
                         </textarea>
-                    </span>
-                    <span>
+                    </div>
+                    <div>
                         <textarea 
                             className = "editTextDescription"
                             onChange={(event) => this.setDetails(event, 'description')}>
                             {/* display text */}
                             {this.props.reduxStore.description}
                         </textarea>
-                    </span>
+                    </div>
                 </div>
             </Router>
 

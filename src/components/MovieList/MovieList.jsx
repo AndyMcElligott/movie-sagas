@@ -42,17 +42,20 @@ class MovieList extends Component {
                     <>
                         <ul> 
                             {/* include a link to edit page here */}
-                            <Link to="/Edit" />
+                            <Link to="/details">
                                 {/* when styling, use material UI to turn img into card? */}
                                 <img 
                                     src={action.poster} 
                                     alt=""
                                     value={action.id}
-                                    onClick={(event) => this.movieInfo(action)}/>
+                                    onClick={(event) => this.movieInfo(action)} />
+                                
                                 <br/>
+                            </Link>
                         </ul>
-                            <h3>{action.title}</h3>
-                            <p>{action.description}</p>
+                                <h3>{action.title}</h3>
+                                <p>{action.description}</p>
+                            
                     </>
                     )}
                 
