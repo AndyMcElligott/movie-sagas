@@ -3,11 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import './MovieList.css';
+import Header from '../Header/Header';
 
 // MATERIAL UI IMPORTS
-import{ 
-    CardMedia 
-}from '@material-ui/core';
+// import Container from '@material-ui/core/Container';
 
 class MovieList extends Component {
 
@@ -35,8 +34,10 @@ class MovieList extends Component {
 
     render() {
         return(
+            // <Container fixed>
             <div className="moviesForDom">
-                <h1 className= "moviesH1">Current Selection Of Movies</h1>
+                <Header/>
+                {/* <h1 className= "moviesH1">Current Selection Of Movies</h1> */}
                 {/* render pics, titles, on the DOM, make clickable to route to details page */}
                 {this.props.reduxStore.movies.map(action => 
                     <>
@@ -59,8 +60,8 @@ class MovieList extends Component {
                             </div>
                     </>
                     )}
-                
             </div>
+            // </Container>
         )
     }
 }

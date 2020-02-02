@@ -4,10 +4,13 @@
 
 
 .App-header {
-  background-color: #222;
+  font-family: 'Blade Runner Movie Font';
+  color: rgb(242, 239, 236);
+  background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/source.gif);
   height: 150px;
   padding: 20px;
   color: white;
+  font-size: 1.43em;
 }
 
 .App-title {

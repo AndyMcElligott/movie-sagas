@@ -1,8 +1,23 @@
 .movieInfo {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
 .moviesH1 {
     font-family: 'Blade Runner Movie Font';
+    color: rgb(242, 239, 236);
+    background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/source.gif);
+    padding: 1em;
+}
+
+.movieInfo {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/source.gif);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
+.moviesForDom {
+    background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/source.gif);
 }
