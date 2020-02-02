@@ -6,7 +6,7 @@ import './MovieList.css';
 import Header from '../Header/Header';
 
 // MATERIAL UI IMPORTS
-// import Container from '@material-ui/core/Container';
+// import {Card} from '@material-ui/core/Container';
 
 class MovieList extends Component {
 
@@ -34,7 +34,6 @@ class MovieList extends Component {
 
     render() {
         return(
-            // <Container fixed>
             <div className="moviesForDom">
                 <Header/>
                 {/* <h1 className= "moviesH1">Current Selection Of Movies</h1> */}
@@ -54,14 +53,15 @@ class MovieList extends Component {
                                 <br/>
                             </Link>
                         </ul>
-                            <div className= "movieInfo">
-                                <h3>{action.title}</h3>
+                            <div className= "movieTitle">
+                                <h3 className>{action.title}</h3>
+                            </div>
+                            <div className="movieDeets">
                                 <p>{action.description}</p>
                             </div>
                     </>
                     )}
             </div>
-            // </Container>
         )
     }
 }

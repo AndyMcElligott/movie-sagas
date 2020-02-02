@@ -21,3 +21,16 @@
 .moviesForDom {
     background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/source.gif);
 }
+
+.movieTitle {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    font-size: 1.75em;
+}
+
+.movieDeets {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+}
