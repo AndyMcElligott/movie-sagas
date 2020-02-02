@@ -17,9 +17,12 @@ import {takeEvery, put} from 'redux-saga/effects'
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery ('GET_MOVIES', getMovies)
+    yield takeEvery ('EDIT_INFO', editInfo)
+    yield takeEvery ('GET_GENRES', getGenres)
 }
 
-// SAGA's
+/////// SAGA's
+// SAGA for getting movies
 function* getMovies(action) {
     let response = yield axios.get('/api/movies')
     console.log(response.data)
@@ -29,6 +32,17 @@ function* getMovies(action) {
     })
 }
 
+// SAGA for editted movie details by ID, PUT
+function* editInfo() {
+    let response = yield axios.put(`/api/movies/:{id}`, action.payload)
+}
+
+// SAGA for junction table to show genres on details page
+function* getGenres() {
+
+}
+
+////// Reducers
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
     switch (action.type) {
@@ -49,6 +63,11 @@ const genres = (state = [], action) => {
     }
 }
 
+// Used to store changed details info from Edit
+const edit = (state= [], action) => {
+
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Create sagaMiddleware
@@ -59,6 +78,7 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        edit
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
