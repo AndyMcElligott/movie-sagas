@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
+// Import other components
 import MovieList from '../MovieList/MovieList'
-// import from Edit once created
+import Edit from '../Edit/Edit';
 
 // MATERIAL UI IMPORTS
 import{ 
@@ -19,7 +21,7 @@ class Details extends Component {
                     {/* nav Link to MoviesList here */}
                     <Link to="/" component={MovieList} />
                     {/* nav Link to edit page here */}
-                    <Link to="/Edit" component={edit} />
+                    <Link to="/Edit" component={Edit} />
                     {/* replace div with Card when styling */}
                     <div className="detailDiv"> 
 

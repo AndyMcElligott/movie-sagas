@@ -8,10 +8,22 @@ import Details from '../Details/Details';
 class Edit extends Component {
 
     // locally store user inputs 
+    state = {
+        id : this.props.reduxStore.id,
+        title : this.props.reduxStore.title,
+        description : this.props.reduxStore.description
+    }
 
     // dispatch payload to Redux Store
 
+
     // capture inputs on save event
+    newDetails = () => {
+        this.props.dispatch({
+            type: 'EDIT_INFO',
+            payload: this.state
+        })
+    }
 
     render() {
 
@@ -33,13 +45,19 @@ class Edit extends Component {
                 <div className="editTextArea">
                     {/* route here to /details ? */}
                     <span>
-                        <textarea className = "editTextTitle">
-
+                        <textarea 
+                            className = "editTextTitle"
+                            onChange={(event) => this.setDetails(event, 'title')}>
+                            {/* display text */}
+                            {this.props.reduxStore.title}
                         </textarea>
                     </span>
                     <span>
-                        <textarea className = "editTextDescription">
-
+                        <textarea 
+                            className = "editTextDescription"
+                            onChange={(event) => this.setDetails(event, 'description')}>
+                            {/* display text */}
+                            {this.props.reduxStore.description}
                         </textarea>
                     </span>
                 </div>

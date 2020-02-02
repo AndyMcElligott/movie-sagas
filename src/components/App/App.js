@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
+
+///// IMPORT other components
 import Home from '../Home/Home';
-import MovieList from '../MovieList/MovieList'
+import MovieList from '../MovieList/MovieList';
+import Details from '../Details/Details';
+import Edit from '../Edit/Edit';
+
+// IMPORT CSS
 import './App.css';
 
 // MATERIAL UI IMPORTS
@@ -11,13 +17,15 @@ import{
 }from '@material-ui/core';
 
 class App extends Component {
-  // Renders the entire app on the DOM
+  // Renders the entire app on the DOM; 'home' screen
   render() {
     return (
       <Router>
-        <div className="App">
-          <Home />
-          <MovieList />
+        {/* Paths to other pages here */}
+        <div className="routeDiv">
+          <Route exact path = "/" Component={MovieList} />
+          <Route path = "/details" Component={Details} />
+          <Route path = "/edit" Component={Edit} />
         </div>
       </Router>
     );
