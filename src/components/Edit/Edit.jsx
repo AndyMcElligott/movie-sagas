@@ -16,33 +16,34 @@ class Edit extends Component {
     render() {
 
         return (
-            <div>
-                <ul>
-                    {/* set up button paths */}
+            <Router>
+                <div>
                     <ul>
-                        {/* if changes want to be abandoned then route back to details page */}
-                        <Link to="/details"> Cancel Edit </Link>
+                        {/* set up button paths */}
+                        <ul>
+                            {/* if changes want to be abandoned then route back to details page */}
+                            <Link to="/details"> Cancel Edit </Link>
+                        </ul>
+                        <ul>
+                            {/* save; send data to details to update */}
+                            <Link to="/details" onClick={this.newDetails}> Save Changes</Link>
+                        </ul>
                     </ul>
-                    <ul>
-                        {/* save; send data to details to update */}
-                        <Link to="/details" onClick={this.newDetails}> Save Changes</Link>
-                    </ul>
-                </ul>
-            </div>
-            <div className="editTextArea">
-                {/* route here to /details ? */}
-                <span>
-                    <textarea className = "editTextTitle">
+                </div>
+                <div className="editTextArea">
+                    {/* route here to /details ? */}
+                    <span>
+                        <textarea className = "editTextTitle">
 
-                    </textarea>
-                </span>
-                <span>
-                    <textarea className = "editTextDescription">
-                        
-                    </textarea>
-                </span>
-            </div>
+                        </textarea>
+                    </span>
+                    <span>
+                        <textarea className = "editTextDescription">
 
+                        </textarea>
+                    </span>
+                </div>
+            </Router>
 
         )
     }
