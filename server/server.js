@@ -9,11 +9,11 @@ app.use(express.static('build'));
 
 // Route includes
 const movieRouter = require('./routes/movie.router')
+const genreRouter = require('./routes/genre.router')
 
 /** ---------- ROUTES ---------- **/
 app.use('/api/movies', movieRouter)
-
-// Route includes
+app.use('/api/movies', genreRouter)
 
 
 /** ---------- START SERVER ---------- **/

@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
     `SELECT "movies".title, "genres".name from "movies"
     JOIN "movies_genres" on "movies".id = "movies_genres".movies_id
     JOIN "genres" on "movies_genres".genres_id = "genres".id
-    WHERE "movies".id = $1;` 
-    })  
+    WHERE "movies".id = $1;`  
     pool.query(queryText, id)
     .then(result => {
         console.log(result.rows)
@@ -21,6 +20,6 @@ router.get('/', (req, res) => {
         console.log('Error in GET genre', error);
         res.sendStatus(500)
     })
-
+})
 
 module.exports = router;

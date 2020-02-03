@@ -18,17 +18,24 @@ class Details extends Component {
         return (
             <>
                 <Router>
-                    {/* nav Link to MoviesList here */}
-                    <Link to="/" component={MovieList} />
-                    {/* nav Link to edit page here */}
-                    <Link to="/Edit" component={Edit} />
-                    {/* replace div with Card when styling */}
+                    <div className="detailsDiv">
+                        <ul> Back to Movie List
+                            {/* nav Link to MoviesList here */}
+                            <Link to="/" component={MovieList} />
+                        </ul> 
+                        <ul> Edit Movie Details
+                            {/* nav Link to edit page here */}
+                            <Link to="/Edit" component={Edit} />
+                        </ul> 
                     <div className="detailDiv"> 
-
+                        {/* paths to other pages here */}
+                            <Route exact path="/" component={MovieList} />
+                            <Route exact path="/edit" component={Edit} />
                         {/* display movie title here; get from store */}
-                        {this.props.reduxStore.details}
+                            {this.props.reduxStore.details}
                         {/* display movie description here; get from store */}
-                        {this.props.reduxStore.description}
+                            {this.props.reduxStore.description}
+                    </div>
                     </div>
                 </Router>
             </>

@@ -34,7 +34,8 @@ function* getMovies(action) {
 
 // SAGA for editted movie details by ID, PUT
 function* editInfo(action) {
-    let response = yield axios.put(`/api/movies/:{id}`, action.payload)
+    let id = action.payload.id;
+    let response = yield axios.put(`/api/movies/:${id}`, action.payload)
     console.log(response.data)
 }
 
@@ -51,6 +52,9 @@ function* getGenres(action) {
         payload: response.data
     })
 }
+
+// Create sagaMiddleware
+const sagaMiddleware = createSagaMiddleware();
 
 ////// Reducers
 // Used to store movies returned from the server
@@ -74,13 +78,14 @@ const genres = (state = [], action) => {
 }
 
 // Used to store changed details info from Edit
-const edit = (state= [], action) => {
+// state needs to be an object
+const edit = (state= {}, action) => {
     switch (action.type) {
-        // if editted return something else
-        case 'EDIT_INFO' :
-            return action.payload;
         // if changes are canceled return original data from DB
         case 'MOVIE_DESCRIPTION' :
+            return action.payload;
+        // if editted return something else
+        case 'EDIT_INFO' :
             return action.payload;
         default:
             return state;        
@@ -89,8 +94,7 @@ const edit = (state= [], action) => {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Create sagaMiddleware
-const sagaMiddleware = createSagaMiddleware();
+
 
 // Create one store that all components can use
 const storeInstance = createStore(

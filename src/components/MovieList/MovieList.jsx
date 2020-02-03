@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import './MovieList.css';
 import Header from '../Header/Header';
+import Details from '../Details/Details';
 
 // MATERIAL UI IMPORTS
 // import {Card} from '@material-ui/core/Container';
@@ -26,7 +27,7 @@ class MovieList extends Component {
     movieInfo = (action) => {
         console.log(action)
         this.props.dispatch({
-            type: 'MOVIE_INFO',
+            type: 'GET_GENRES',
             payload: action // double check this is the correct payload on testing
         })
     }
