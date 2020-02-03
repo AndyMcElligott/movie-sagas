@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import MovieList from '../MovieList/MovieList';
 import Details from '../Details/Details';
+import './Edit.css';
 
 
 class Edit extends Component {
@@ -34,7 +35,8 @@ class Edit extends Component {
 
         return (
             <Router>
-                <div>
+                <div className="editPage">
+                <div className="editArea">
                     <ul>
                         {/* set up button paths */}
                         <ul>
@@ -51,6 +53,7 @@ class Edit extends Component {
                     {/* route here to /details ? */}
                     <Route path = "/Details" component = {Details} />
                     <div>
+                    <p>Edit Movie Title</p>
                         <textarea 
                             className = "editTextTitle"
                             onChange={(event) => this.setDetails(event, 'title')}>
@@ -59,6 +62,7 @@ class Edit extends Component {
                         </textarea>
                     </div>
                     <div>
+                    <p>Edit Movie Description</p>
                         <textarea 
                             className = "editTextDescription"
                             onChange={(event) => this.setDetails(event, 'description')}>
@@ -66,6 +70,7 @@ class Edit extends Component {
                             {this.props.reduxStore.description}
                         </textarea>
                     </div>
+                </div>
                 </div>
             </Router>
 
