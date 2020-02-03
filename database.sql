@@ -63,3 +63,5 @@ CREATE TABLE "movies_genres" (
 	"movies_id" INT REFERENCES "movies",
 	"genres_id" INT REFERENCES "genres"
 );
+
+-- INSERT CORRESPONDING DATA INTO JUNCTION TABLE
