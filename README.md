@@ -1,9 +1,8 @@
-# Project Name
+Movie Sagas
+This project was an individual weekend assignment aimed at giving us practice handling asynchronous action using Redux-Saga and javascript generator functions.
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Description
+The application displays a list of movies and their respective descriptions. Upon clicking on a movie's poster, the user is taken to a details page that has more information about the selected movie. On this page, the user has the option to edit these details. The updated details will appear upon page refresh.
 
-## Description
-
-Your project description goes here. What problem did you solve? How did you solve it?
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Technologies Used
+This app is built with a React.js front end, an Express server, and a PostreSQL database. The front end uses React-Redux to store variables used accross components, and Redux-Saga to handle asynchronous actions. The server implements a REST API to handle http requests and interact with the database. The database consists of a "movies" table and a "genres" table that have a many-to-many relationship, represented by a "movies_genres" table.
